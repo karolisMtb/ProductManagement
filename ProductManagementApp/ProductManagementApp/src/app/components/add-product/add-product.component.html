@@ -1,0 +1,34 @@
+<form class="exampleForm">
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name" [(ngModel)]="productName" name="productName" required>
+    <mat-error style="color:red">Product name is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Description" [(ngModel)]="productDescription" name="productDescription"
+      required></textarea>
+    <mat-error style="color:red">Description name is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput type="number" placeholder="Euros" [(ngModel)]="euros" name="euros" required>
+    <mat-error style="color:red">Euro price is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput type="number" placeholder="Cents" [(ngModel)]="cents" name="cents" required>
+    <mat-error style="color:red">Cent price is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Product Type</mat-label>
+    <mat-select [(ngModel)]="selectedProductTypeId" name="productType" required>
+      <mat-option *ngFor="let productType of productTypes" [value]="productType.id">
+        {{ productType.typeName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="submitForm()">Submit</button>
+</form>
